@@ -6,11 +6,16 @@ public class StringExample {
 
     public static void main(String[] args) {
 
+        String d =new String("a");
+        String e = new String("a");
+        System.out.println(d==e);
+        System.out.println(d.hashCode() +" " + e.hashCode());
+
         //Example 1: Input: s = "leetcode" Output: 0
         String a = "leetcode";
         System.out.println(firstUniqueElements(a));
 
-        //Example 2: Input: s = "loveleetcode" Output: 2
+       // Example 2: Input: s = "loveleetcode" Output: 2
         String b = "loveleetcode";
         System.out.println(firstUniqueElements(b));
 
@@ -33,6 +38,7 @@ public class StringExample {
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             map.put(c, map.getOrDefault(c, 0) + 1);
+
         }
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
@@ -43,7 +49,7 @@ public class StringExample {
         return -1;
     }
     /**
-     * Task 2. Вывод будет 4. Так как использование слова new, мы создаем новый объект со своими hashcode.
+     * Task 2. Вывод будет 4. Так как при использовании оператора new, мы создаем новый объект со своими hashcode.
      * И поэтому в  Set добавляются все 4 объекта, так как у каждого свой hashcode, и при добавлении в Set,
      * сравнение объектов происходит по hashcode. Если мы хотели добавить 4 строки, и 2 из них имели би одинаковое значение,
      * то результат был бы 3.
@@ -84,12 +90,13 @@ public class StringExample {
 
         Map<Character, Integer> map = new HashMap<>();
 
+
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
             map.put(c, map.getOrDefault(c, 0) + 1);
 
         }
-        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            for (Map.Entry<Character, Integer> entry : map.entrySet()) {
             if (entry.getKey() == ' ') {
                 System.out.println("The character spase occurs " + entry.getValue() + " times.");
             } else {
